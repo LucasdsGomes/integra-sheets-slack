@@ -54,7 +54,7 @@ Este projeto é uma solução de automação no-code/low-code que coleta feedbac
 ## Prints do Fluxo no Make
 
 - Print 1: Visão geral do cenário
-  <img width="1158" height="216" alt="image" src="https://github.com/user-attachments/assets/826038fc-3337-4331-945a-1326d6847f72" />
+  <img width="1668" height="659" alt="image" src="https://github.com/user-attachments/assets/923685ba-0187-432f-bcb2-198965544307" />
   
 - Print 2: Módulo Gemini com prompt
   <img width="819" height="414" alt="image" src="https://github.com/user-attachments/assets/d7d25e0a-38ce-4154-8e55-03c367188505" />
