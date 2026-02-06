@@ -54,9 +54,16 @@ Este projeto é uma solução de automação no-code/low-code que coleta feedbac
 ## Prints do Fluxo no Make
 
 - Print 1: Visão geral do cenário
+  <img width="1158" height="216" alt="image" src="https://github.com/user-attachments/assets/826038fc-3337-4331-945a-1326d6847f72" />
+  
 - Print 2: Módulo Gemini com prompt
+  <img width="819" height="414" alt="image" src="https://github.com/user-attachments/assets/d7d25e0a-38ce-4154-8e55-03c367188505" />
+
 - Print 3: Update Row mapeando Row number dinâmico
+  <img width="401" height="251" alt="image" src="https://github.com/user-attachments/assets/16fba134-ec1b-4639-9ff8-a9777baf24aa" />
+
 - Print 4: Exemplo de mensagem no Slack
+  <img width="557" height="353" alt="image" src="https://github.com/user-attachments/assets/e7c535bb-0a4f-481d-89eb-168c9661598e" />
 
 ## Como Rodar / Testar
 
