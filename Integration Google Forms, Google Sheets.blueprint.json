@@ -1,0 +1,869 @@
+{
+    "name": "Integration Google Forms, Google Sheets",
+    "flow": [
+        {
+            "id": 11,
+            "module": "google-sheets:watchRows",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 7302824,
+                "mode": "select",
+                "includesHeaders": true,
+                "limit": 5,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING",
+                "from": "drive",
+                "spreadsheetId": "/18aE0-fZ3lQKHVjLVl55svawgWfGYRa3o-E0GzHbzgDE",
+                "sheetId": "Respostas ao formulário 3",
+                "tableFirstRow": "A1:Z1"
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -147,
+                    "y": 4
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Google connection (luccagomeszy@gmail.com)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            }
+                        },
+                        "mode": {
+                            "label": "Search by path"
+                        },
+                        "includesHeaders": {
+                            "label": "Yes"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        },
+                        "from": {
+                            "label": "My Drive"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "Automação Emocional"
+                            ]
+                        },
+                        "sheetId": {
+                            "label": "Respostas ao formulário 3"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "text",
+                        "label": "Row with headers",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__ROW_NUMBER__",
+                        "label": "Row number",
+                        "type": "number"
+                    },
+                    {
+                        "name": "__SPREADSHEET_ID__",
+                        "label": "Spreadsheet ID",
+                        "type": "text"
+                    },
+                    {
+                        "name": "__SHEET__",
+                        "label": "Sheet",
+                        "type": "text"
+                    },
+                    {
+                        "name": "0",
+                        "label": "Carimbo de data/hora (A)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "1",
+                        "label": "Nome (B)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "2",
+                        "label": "E-mail (C)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "3",
+                        "label": "Nota de Satisfação Geral (D)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "4",
+                        "label": "Comentário / Feedback principal (E)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "5",
+                        "label": "Área (F)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "6",
+                        "label": "Nota da IA (G)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "7",
+                        "label": "Data da Avaliação (H)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "8",
+                        "label": "(I)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "9",
+                        "label": "(J)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "10",
+                        "label": "(K)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "11",
+                        "label": "(L)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "12",
+                        "label": "(M)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "13",
+                        "label": "(N)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "14",
+                        "label": "(O)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "15",
+                        "label": "(P)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "16",
+                        "label": "(Q)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "17",
+                        "label": "(R)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "18",
+                        "label": "(S)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "19",
+                        "label": "(T)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "20",
+                        "label": "(U)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "21",
+                        "label": "(V)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "22",
+                        "label": "(W)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "23",
+                        "label": "(X)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "24",
+                        "label": "(Y)",
+                        "type": "text"
+                    },
+                    {
+                        "name": "25",
+                        "label": "(Z)",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 12,
+            "module": "gemini-ai:simpleTextPrompt",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "model": "gemini-3-flash-preview",
+                "textPrompt": "Você é um sistema que retorna apenas JSON válido.\r\nAnalise o feedback e responda SOMENTE com JSON válido.\r\nNão escreva explicações.\r\nNão use markdown.\r\nNão use ```json.\r\nO campo score deve ser um número entre 1 e 10 usando ponto decimal quando necessário (exemplo: 7.5).\r\nInclua uma sugestão de ação de negócio clara e mensurável (ex: \"Aumentar suporte para reduzir churn em 10%\").\r\nFormato obrigatório:\r\n{\r\n  \"sentimento\": \"positivo | neutro | negativo\",\r\n  \"score\": 0,\r\n  \"insight\": \"resumo curto\",\r\n  \"sugestao_acao\": \"ação de negócio clara e mensurável\",\r\n  \"data_analise\": \"data da análise aleatória feita pela IA\"\r\n}\r\nFeedback:\r\n{{11.`4`}}  <!-- Ajuste para o nome exato da coluna -->"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 235,
+                    "y": 5
+                },
+                "restore": {
+                    "expect": {
+                        "model": {
+                            "label": "Gemini 3 Flash PreviewBuilt for speed, scale, and frontier intelligence"
+                        }
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "model",
+                        "type": "select",
+                        "label": "Model",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "gemini-3-flash-preview",
+                                "gemini-3-pro-preview",
+                                "gemini-2.5-pro",
+                                "gemini-2.5-flash"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "textPrompt",
+                        "type": "text",
+                        "label": "Text prompt",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "json:ParseJSON",
+            "version": 1,
+            "parameters": {
+                "type": ""
+            },
+            "mapper": {
+                "json": "{{12.result}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 591,
+                    "y": 3
+                },
+                "restore": {
+                    "parameters": {
+                        "type": {
+                            "label": "Choose a data structure"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "udt",
+                        "label": "Data structure"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "json",
+                        "type": "text",
+                        "label": "JSON string",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "google-sheets:updateRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 7302824
+            },
+            "filter": {
+                "name": "",
+                "conditions": [
+                    [
+                        {
+                            "a": "{{6.score}}",
+                            "o": "number:notequal",
+                            "b": "0"
+                        }
+                    ],
+                    [
+                        {
+                            "a": "{{6.sentimento}}",
+                            "o": "text:equal",
+                            "b": "erro"
+                        }
+                    ]
+                ]
+            },
+            "mapper": {
+                "mode": "select",
+                "valueInputOption": "USER_ENTERED",
+                "from": "drive",
+                "spreadsheetId": "/18aE0-fZ3lQKHVjLVl55svawgWfGYRa3o-E0GzHbzgDE",
+                "sheetId": "Respostas ao formulário 3",
+                "rowNumber": "{{11.`__ROW_NUMBER__`}}",
+                "includesHeaders": true,
+                "values": {
+                    "6": "{{6.score}}",
+                    "7": "{{formatDate(now; \"YYYY-MM-DD HH:mm:ss\")}}\r\n"
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 935,
+                    "y": 2
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Google connection (luccagomeszy@gmail.com)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "mode": {
+                            "label": "Search by path"
+                        },
+                        "valueInputOption": {
+                            "mode": "chose",
+                            "label": "User entered"
+                        },
+                        "from": {
+                            "label": "My Drive"
+                        },
+                        "spreadsheetId": {
+                            "path": [
+                                "Automação Emocional"
+                            ]
+                        },
+                        "sheetId": {
+                            "label": "Respostas ao formulário 3"
+                        },
+                        "includesHeaders": {
+                            "nested": [
+                                {
+                                    "name": "values",
+                                    "label": "Values",
+                                    "type": "collection",
+                                    "spec": [
+                                        {
+                                            "name": "0",
+                                            "label": "Carimbo de data/hora (A)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "label": "Nome (B)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "2",
+                                            "label": "E-mail (C)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "3",
+                                            "label": "Nota de Satisfação Geral (D)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "4",
+                                            "label": "Comentário / Feedback principal (E)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "5",
+                                            "label": "Área (F)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "6",
+                                            "label": "Nota da IA (G)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "7",
+                                            "label": "Data da Avaliação (H)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "8",
+                                            "label": "(I)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "9",
+                                            "label": "(J)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "10",
+                                            "label": "(K)",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "11",
+                                            "label": "(L)",
+                                            "type": "text"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "label": "Yes"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "valueInputOption",
+                        "type": "select",
+                        "label": "Value input option",
+                        "validate": {
+                            "enum": [
+                                "USER_ENTERED",
+                                "RAW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Drive",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share",
+                                "team"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "file",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "rowNumber",
+                        "type": "uinteger",
+                        "label": "Row number",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "values",
+                        "type": "collection",
+                        "label": "Values",
+                        "spec": [
+                            {
+                                "name": "0",
+                                "type": "text",
+                                "label": "Carimbo de data/hora (A)"
+                            },
+                            {
+                                "name": "1",
+                                "type": "text",
+                                "label": "Nome (B)"
+                            },
+                            {
+                                "name": "2",
+                                "type": "text",
+                                "label": "E-mail (C)"
+                            },
+                            {
+                                "name": "3",
+                                "type": "text",
+                                "label": "Nota de Satisfação Geral (D)"
+                            },
+                            {
+                                "name": "4",
+                                "type": "text",
+                                "label": "Comentário / Feedback principal (E)"
+                            },
+                            {
+                                "name": "5",
+                                "type": "text",
+                                "label": "Área (F)"
+                            },
+                            {
+                                "name": "6",
+                                "type": "text",
+                                "label": "Nota da IA (G)"
+                            },
+                            {
+                                "name": "7",
+                                "type": "text",
+                                "label": "Data da Avaliação (H)"
+                            },
+                            {
+                                "name": "8",
+                                "type": "text",
+                                "label": "(I)"
+                            },
+                            {
+                                "name": "9",
+                                "type": "text",
+                                "label": "(J)"
+                            },
+                            {
+                                "name": "10",
+                                "type": "text",
+                                "label": "(K)"
+                            },
+                            {
+                                "name": "11",
+                                "type": "text",
+                                "label": "(L)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "slack:CreateMessage",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 7304300
+            },
+            "mapper": {
+                "channelWType": "list",
+                "text": "*Relatório de Feedback* :bar_chart:\n\r\n*Data da análise*: {{6.data_analise}}\n\n*Sentimento médio*:  {{6.sentimento}} ({{6.score}})\r\n\r\n*Insights chave:*\r\n {{6.insight}}",
+                "blocks": "[\r\n  {\r\n    \"type\": \"header\",\r\n    \"text\": {\r\n      \"type\": \"plain_text\",\r\n      \"text\": \"Novo Feedback Analisado :bar_chart:\",\r\n      \"emoji\": true\r\n    }\r\n  },\r\n  {\r\n    \"type\": \"section\",\r\n    \"fields\": [\r\n      {\r\n        \"type\": \"mrkdwn\",\r\n        \"text\": \"*Sentimento:* {{6.sentimento}}\"\r\n      },\r\n      {\r\n        \"type\": \"mrkdwn\",\r\n        \"text\": \"*Score:* {{6.score}} / 10\"\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"type\": \"section\",\r\n    \"text\": {\r\n      \"type\": \"mrkdwn\",\r\n      \"text\": \"*Insight Principal:* {{6.insight}} \"\r\n    }\r\n  },\r\n  {\r\n    \"type\": \"section\",\r\n    \"text\": {\r\n      \"type\": \"mrkdwn\",\r\n      \"text\": \"*Valor de Negócio:* Este feedback pode impactar a retenção de clientes em até 5-10% (baseado em score <7). Ação sugerida: \"\r\n    }\r\n  },\r\n  {\r\n    \"type\": \"divider\"\r\n  },\r\n  {\r\n    \"type\": \"context\",\r\n    \"elements\": [\r\n      {\r\n        \"type\": \"mrkdwn\",\r\n        \"text\": \"Analisado em {{6.data_analise}}\r\n      }\r\n    ]\r\n  }\r\n]",
+                "parse": false,
+                "mrkdwn": true,
+                "channelType": "public",
+                "channel": "C0ADBKBAD8S"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1254,
+                    "y": 8
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Slack (user) connection (lucas-mhj4008.slack.com - programmingpyrubygo)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "slack2"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "channelWType": {
+                            "label": "Select from the list"
+                        },
+                        "reply_broadcast": {
+                            "mode": "chose"
+                        },
+                        "link_names": {
+                            "mode": "chose"
+                        },
+                        "parse": {
+                            "mode": "chose"
+                        },
+                        "mrkdwn": {
+                            "mode": "chose"
+                        },
+                        "unfurl_links": {
+                            "mode": "chose"
+                        },
+                        "unfurl_media": {
+                            "mode": "chose"
+                        },
+                        "channelType": {
+                            "label": "Public channel"
+                        },
+                        "channel": {
+                            "mode": "chose",
+                            "label": "auto-lead"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:slack2,slack3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "channelWType",
+                        "type": "select",
+                        "label": "Enter a channel ID or name",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "manualy",
+                                "list"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "type": "text",
+                        "label": "Text"
+                    },
+                    {
+                        "name": "blocks",
+                        "type": "text",
+                        "label": "Blocks"
+                    },
+                    {
+                        "name": "thread_ts",
+                        "type": "text",
+                        "label": "Thread message ID (time stamp)"
+                    },
+                    {
+                        "name": "reply_broadcast",
+                        "type": "boolean",
+                        "label": "Reply broadcast"
+                    },
+                    {
+                        "name": "link_names",
+                        "type": "boolean",
+                        "label": "Link names"
+                    },
+                    {
+                        "name": "parse",
+                        "type": "boolean",
+                        "label": "Parse message text"
+                    },
+                    {
+                        "name": "mrkdwn",
+                        "type": "boolean",
+                        "label": "Use markdown"
+                    },
+                    {
+                        "name": "unfurl_links",
+                        "type": "boolean",
+                        "label": "Unfurl primarily text-based content"
+                    },
+                    {
+                        "name": "unfurl_media",
+                        "type": "boolean",
+                        "label": "Unfurl media content"
+                    },
+                    {
+                        "name": "icon_emoji",
+                        "type": "text",
+                        "label": "Icon emoji"
+                    },
+                    {
+                        "name": "icon_url",
+                        "type": "url",
+                        "label": "Icon url"
+                    },
+                    {
+                        "name": "username",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "channelType",
+                        "type": "select",
+                        "label": "Channel type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "public",
+                                "private",
+                                "im",
+                                "mpim"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "channel",
+                        "type": "select",
+                        "label": "Public channel",
+                        "required": true
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
